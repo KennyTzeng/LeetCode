@@ -22,18 +22,19 @@ public:
 
     vector<int> postorder(Node* root) {
         
-        visit(root);
+        if(root) {
+            visit(root);
+        }
         return result;
     }
 
 private:
     void visit(Node* node) {
-        if(node) {
-            for(Node* child : (node->children)) {
-                visit(child);
-            }
-            result.push_back(node->val);
+
+        for(Node* child : (node->children)) {
+            visit(child);
         }
+        result.push_back(node->val);
     }
 
 };
